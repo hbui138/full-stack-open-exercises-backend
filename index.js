@@ -5,8 +5,9 @@ const app = express();
 
 app.use(cors())
 
-// Middleware to parse JSON bodies
+// Middleware to parse JSON bodies and use static content
 app.use(express.json());
+app.use(express.static('dist'))
 
 // Create a new Morgan token to log request body
 morgan.token("body", (req) => JSON.stringify(req.body));
